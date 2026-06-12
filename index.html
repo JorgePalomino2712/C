@@ -625,6 +625,11 @@
 
         updateCounter();
 
+        window.addEventListener("load", () => {
+            const video = document.getElementById("video");
+            video.load();
+        });
+
     </script>
 
 </body>
