@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Para Cinthia ❤️</title>
-
+    <link rel="icon" type="image/png" href="./fotos/icono.jpg">
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&family=Dancing+Script:wght@700&display=swap"
         rel="stylesheet">
@@ -404,7 +404,7 @@
         </p>
 
         <video controls id="video">
-            <source src="video.mp4" type="video/mp4">
+            <source src="./video.mp4" type="video/mp4">
         </video>
 
     </div>
@@ -474,49 +474,55 @@
                 },
                 {
                     text: "Gracias por cada salida.",
-                    image: "fotos/2.jpg"
+                    image: "./fotos/2.jpg"
                 },
                 {
                     text: "Gracias por cada conversación.",
-                    image: "fotos/3.jpg"
+                    image: "./fotos/3.jpg"
                 },
                 {
                     text: "Gracias por cada sonrisa.",
-                    image: "fotos/4.jpg"
+                    image: "./fotos/4.jpg"
                 },
                 {
                     text: "Gracias por estos hermosos 6 meses ❤️",
-                    image: "fotos/5.jpg"
+                    image: "./fotos/5.jpg"
                 }
             ];
 
             let i = 0;
-
             const el = document.getElementById("memories");
-
             el.innerHTML = "";
 
-            const interval = setInterval(() => {
-
-                el.innerHTML += `
-        <div class="memory">
-            <img src="${memories[i].image}" alt="Recuerdo" width="250">
-            <p>${memories[i].text}</p>
-        </div>
-        <br>
-    `;
-
-                i++;
+            function showNextMemory() {
 
                 if (i >= memories.length) {
-                    clearInterval(interval);
-
                     document.getElementById("memoryBtn")
                         .style.display = "inline-block";
+                    return;
                 }
 
-            }, 1200);
+                const img = new Image();
 
+                img.onload = () => {
+
+                    el.innerHTML += `
+                <div class="memory">
+                    <img src="${memories[i].image}" alt="Recuerdo">
+                    <p>${memories[i].text}</p>
+                </div>
+                <br>
+            `;
+
+                    i++;
+
+                    setTimeout(showNextMemory, 1200);
+                };
+
+                img.src = memories[i].image;
+            }
+
+            showNextMemory();
         }
 
         function updateCounter() {
