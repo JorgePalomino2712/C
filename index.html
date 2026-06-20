@@ -25,6 +25,18 @@
             overflow-y: auto;
         }
 
+        #s6.active {
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            overflow-y: auto;
+        }
+
+        #letterBtn {
+            margin-top: 30px;
+            margin-bottom: 40px;
+        }
+
         #memories {
             width: 100%;
             max-width: 420px;
@@ -415,10 +427,17 @@
 
         <div class="final-heart">💍</div>
 
-        <h1>Una promesa</h1>
+        <img src="./fotos/7.jpg" style="
+        width: 100%;
+        max-width: 400px;
+        height: auto;
+        border-radius: 20px;
+        object-fit: cover;
+        box-shadow: 0 0 20px rgba(255,255,255,.2);
+     " alt="">
 
         <p>
-            Hoy quiero hacerte una promesa.
+
             <br><br>
             Prometo seguir eligiéndote.
             <br>
@@ -474,18 +493,22 @@
                 },
                 {
                     text: "Gracias por cada salida.",
-                    image: "./fotos/2.jpg"
+                    image: "./fotos/6.jpg"
                 },
                 {
                     text: "Gracias por cada conversación.",
-                    image: "./fotos/3.jpg"
+                    image: "./fotos/2.jpg"
                 },
                 {
                     text: "Gracias por cada sonrisa.",
                     image: "./fotos/4.jpg"
                 },
                 {
-                    text: "Gracias por estos hermosos 6 meses ❤️",
+                    text: "Gracias por ser tú ❤️",
+                    image: "./fotos/3.jpg"
+                },
+                {
+                    text: "Gracias por estos bonito 6 meses ❤️",
                     image: "./fotos/5.jpg"
                 }
             ];
@@ -550,7 +573,7 @@
         function startLetter() {
 
             const text =
-                "Estos 6 meses me enseñaron que el amor no se encuentra, se construye. Y cada día contigo quiero seguir construyéndolo. Gracias por cada momento, por cada sonrisa, por cada recuerdo y por hacer que mi vida sea mejor desde que llegaste a ella. Cinthia, eres una de las cosas más bonitas que me han pasado. ❤️";
+                "Estos 6 meses me enseñaron que el amor se construye. Y cada día contigo quiero seguir construyéndolo. Gracias por cada momento, por cada sonrisa, por cada recuerdo y por llegar a mi vida. Cinthia mi amor, eres una de las cosas más bonitas que me han pasado. Me seguiré enamorando de ti todos los dias, porque no puedo evitar sonreir cuando pienso en ti, y pienso en ti cada día, cada momento ❤️. Se que hemos tenido algunos problemas, no somos perfectos, sin embargo deseos que podamos ir mas allá de un simple Juntos por mucho tiempo, habran dias malos, pero los superaremos juntos, progresaremos juntos. Porque quiero estar contigo a pesar de nuestros miedos e imperfecciones, quiero y deseo siempre verte, que en nuestro futuro abrir mis ojos y que seas la primera persona que vea, compartir una vida contigo, demostrarte siempre mis sentimientos sinceros y no cansarme de decir que esto es lo correcto, estar junto a ti. Te elegiré hoy y Siempre ❤️ ";
 
             let i = 0;
 
