@@ -18,6 +18,39 @@
             box-sizing: border-box;
         }
 
+        input {
+
+            width: 90%;
+            max-width: 320px;
+
+            padding: 16px;
+
+            border: none;
+
+            outline: none;
+
+            border-radius: 50px;
+
+            font-size: 18px;
+
+            text-align: center;
+
+            margin-top: 15px;
+
+            background: rgba(255, 255, 255, .15);
+
+            color: white;
+
+            backdrop-filter: blur(10px);
+
+        }
+
+        input::placeholder {
+
+            color: rgba(255, 255, 255, .7);
+
+        }
+
         #s3.active {
             display: flex;
             justify-content: flex-start;
@@ -270,12 +303,37 @@
             Hay algo que quiero recordarte.
         </p>
 
-        <button onclick="next(2)">
+        <button onclick="showUnlock()">
             Continuar ✨
         </button>
 
     </div>
 
+    <!-- Pantalla de la llave -->
+
+    <div class="screen" id="unlock">
+
+        <div style="font-size:70px;">🔒❤️</div>
+
+        <h1>Solo tú sabes cómo abrir mi corazón ❤️</h1>
+
+        <p style="margin-bottom:25px; max-width:350px;">
+            Hay recuerdos que nunca se olvidan...
+            <br><br>
+            La llave está escrita en uno de los días más importantes de nuestra historia.
+            <br><br>
+            //
+        </p>
+
+        <input id="password" type="text" placeholder="¿?" autocomplete="off">
+
+        <button onclick="unlockHeart()">
+            Abrir mi corazón ❤️
+        </button>
+
+        <p id="error" style="margin-top:20px;color:#ffd5d5;"></p>
+
+    </div>
     <!-- Pantalla 2 -->
 
     <div class="screen" id="s2">
@@ -486,6 +544,56 @@
 
         }
 
+        function showUnlock() {
+
+            document.querySelectorAll(".screen")
+                .forEach(s => s.classList.remove("active"));
+
+            document.getElementById("unlock")
+                .classList.add("active");
+
+        }
+        function unlockHeart() {
+
+            const key =
+                document.getElementById("password")
+                    .value.trim();
+
+            if (key === "19/12/25") {
+
+                if (navigator.vibrate) {
+
+                    navigator.vibrate(200);
+
+                }
+
+                document.getElementById("unlock")
+                    .style.animation = "fade .8s";
+
+                setTimeout(() => {
+
+                    next(2);
+
+                }, 700);
+
+            } else {
+                const frases = [
+
+                    "❤️ Esa no parece ser la llave.",
+
+                    "🥹 Sé que la conoces...",
+
+                    "💕 Piensa en algo que solo nosotros sabemos.",
+
+                    "❤️ Inténtalo otra vez."
+
+                ];
+
+                document.getElementById("error").innerHTML =
+                    frases[Math.floor(Math.random() * frases.length)];
+
+            }
+        }
         function startMemories() {
 
             const memories = [
